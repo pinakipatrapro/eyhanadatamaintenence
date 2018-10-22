@@ -1,0 +1,15 @@
+sap.ui.define([],
+function () {
+	"use strict";
+	return {
+		intialSettings: {
+			columnStorage : true,
+			existingTable: true,
+			schemaName: '', //Dropdown
+			tableName: '', // Input Suggest
+			deleteExistingData: false,
+			selectedSheet: ''
+		}
+	};
+
+});

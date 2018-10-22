@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<tnt:SideNavigation >
+		<tnt:NavigationList>
+			<tnt:items>
+				<tnt:NavigationListItem icon="sap-icon://menu2" text="{i18n>tooglesidebarText}" select="toggleSidebar" />
+				<tnt:NavigationListItem icon="sap-icon://upload-to-cloud" text="{i18n>initialSettingsText}" select="nav2InitialSettings" />
+			</tnt:items>
+		</tnt:NavigationList>
+	</tnt:SideNavigation>
+</core:FragmentDefinition>

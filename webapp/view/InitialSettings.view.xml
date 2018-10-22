@@ -1,0 +1,53 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ey.util.pinaki.DataImport.controller.InitialSettings" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>initialSettingsText}" class="fullHeight" id='idUploadExcelData' floatingFooter="true">
+		<content>
+			<VBox alignItems="Center">
+				<RadioButtonGroup valueState="None" columns="5" class="sapUiSmallMargin">
+					<buttons>
+						<RadioButton  text="{i18n>importIntoExistingTableText}" selected="{/initialSettings/existingTable}"/>
+						<RadioButton  text="{i18n>createanewtable}" />
+					</buttons>
+				</RadioButtonGroup>
+				<HBox justifyContent="Center" class="sapUiTinyMargin">
+					<Label text="Select Schema" class="sapUiTinyMargin"/>
+					<ComboBox 
+						selectedKey="{/initialSettings/schemaName}"
+						items="{
+							path:'viewModel>/Artifacts?$select=SCHEMA_NAME',
+							parameters: {
+					            select: 'SCHEMA_NAME',
+					            top : '1000'
+					        }	
+						}"  change="onSchemaSelectionChange">
+						<core:Item  text="{viewModel>SCHEMA_NAME}"  key="{viewModel>SCHEMA_NAME}"/>
+					</ComboBox>
+				</HBox>
+				<Input width="20rem" placeholder="New Table Name" value="{/initialSettings/tableName}" visible="{= !${/initialSettings/existingTable}}"/>
+				<HBox justifyContent="Center" class="sapUiTinyMargin" visible="{/initialSettings/existingTable}">
+					<Label text="Select Table" class="sapUiTinyMargin"/>
+					<ComboBox id='idTableSelect' selectedKey="{/initialSettings/tableName}">
+						
+					</ComboBox>
+				</HBox>
+				<HBox justifyContent="Center">
+					<Label text="Select Workbook" class="sapUiTinyMargin"/>
+					<html:Input type="file" id="fileUploader" width="25rem" class="sapUiTinyMargin fileSelector"/>
+				</HBox>
+				<HBox justifyContent="Center" class="sapUiTinyMargin" visible="{= !!${/uploadedFileSheets}}">
+					<Label text="Select Sheet" class="sapUiTinyMargin"/>
+					<Select items="{path:'/uploadedFileSheets'}" change="onSheetSelectionChange">
+						<core:Item  text="{name}"  key="{name}"/>
+					</Select>
+				</HBox>
+			</VBox>
+		</content>
+		<footer>
+			<OverflowToolbar visible="{= !!${/uploadedFileSheets}}">
+				<ToolbarSpacer/>
+				<Button text="Continue to Data Mapping" icon="sap-icon://overview-chart" press="nav2DataUploadMapping" visible="{/initialSettings/existingTable}"/>
+				<Button text="Continue to Table Creation" icon="sap-icon://create" press="nav2TableCreation" visible="{= !${/initialSettings/existingTable}}" />
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

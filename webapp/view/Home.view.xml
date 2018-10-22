@@ -1,0 +1,8 @@
+<mvc:View controllerName="ey.util.pinaki.DataImport.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt"  xmlns:core="sap.ui.core">
+	<tnt:ToolPage id='tdToolpageContiner' sideExpanded="false">
+		<tnt:sideContent>
+			<core:Fragment fragmentName="ey.util.pinaki.DataImport.fragments.toolPageSideContent" type="XML"/>
+		</tnt:sideContent>
+	</tnt:ToolPage>
+</mvc:View>

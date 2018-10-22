@@ -1,0 +1,11 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ey.util.pinaki.DataImport.controller.Launchpage" xmlns:html="http://www.w3.org/1999/xhtml">
+	<MessagePage 
+		showHeader="false" 
+		class="fullHeight"
+		text="Welcome to the data maintainence tool" 
+		description="Use the navigation menu on the left to navigate to specific utility"
+		icon="sap-icon://customize">
+		
+	</MessagePage>
+</mvc:View>

@@ -1,0 +1,181 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "ey.util.pinaki.DataImport",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"paginatedService": {
+				"uri": "/eyhcp/Pinaki/DataMaintenance/Service/DataMaintenence.xsodata",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ey.util.pinaki.DataImport.view.Home",
+			"type": "XML"
+		},
+		"config": {
+			"fullWidth": true
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"viewModel": {
+				"dataSource": "paginatedService"
+			},
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ey.util.pinaki.DataImport.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ey.util.pinaki.DataImport.view",
+				"controlAggregation": "mainContents",
+				"controlId": "tdToolpageContiner",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Launchpage",
+					"pattern": "",
+					"target": [
+						"Launchpage"
+					]
+				},
+				{
+					"name": "InitialSettings",
+					"pattern": "InitialSettings",
+					"target": [
+						"InitialSettings"
+					]
+				},
+				{
+					"name": "DataUploadMapping",
+					"pattern": "DataUploadMapping",
+					"target": [
+						"DataUploadMapping"
+					]
+				},
+				{
+					"name": "TableCreator",
+					"pattern": "TableCreator",
+					"target": [
+						"TableCreator"
+					]
+				}
+			],
+			"targets": {
+				"TargetHome": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "Home",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "ey.util.pinaki.DataImport.view",
+					"controlAggregation": "pages",
+					"controlId": "tdToolpageContiner"
+				},
+				"Launchpage": {
+					"viewType": "XML",
+					"viewName": "Launchpage",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "ey.util.pinaki.DataImport.view",
+					"controlAggregation": "mainContents",
+					"controlId": "tdToolpageContiner",
+					"clearControlAggregation": true
+				},
+				"InitialSettings": {
+					"viewType": "XML",
+					"viewName": "InitialSettings",
+					"controlAggregation": "mainContents",
+					"controlId": "tdToolpageContiner",
+					"clearControlAggregation": true,
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "ey.util.pinaki.DataImport.view"
+				},
+				"DataUploadMapping": {
+					"viewType": "XML",
+					"viewName": "DataUploadMapping",
+					"controlAggregation": "mainContents",
+					"controlId": "tdToolpageContiner",
+					"clearControlAggregation": true,
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "ey.util.pinaki.DataImport.view"
+				},
+				"TableCreator": {
+					"viewType": "XML",
+					"viewName": "TableCreator",
+					"clearControlAggregation": true
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

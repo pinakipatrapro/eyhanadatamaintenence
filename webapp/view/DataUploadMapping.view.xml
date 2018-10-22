@@ -1,0 +1,45 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core"
+	xmlns:dnd="sap.ui.core.dnd" xmlns:l="sap.ui.layout" controllerName="ey.util.pinaki.DataImport.controller.DataUploadMapping"
+	displayBlock="true">  
+	<Page class="sapUiSizeCompact fullHeight" title="Map Uploaded Data " busyIndicatorDelay="0" floatingFooter="true">
+		<content>
+			<Panel headerText="Manage Mappings" expandable="true" expanded="true">
+				<l:Splitter height="400px">
+					<List id="idTableColumnList" mode="SingleSelectMaster">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Table Columns" level="H2"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://number-sign" tooltip="Map to constant" press="mapToConstant"/>
+								<Button type="Emphasized" icon="sap-icon://journey-arrive" tooltip="Map by Name" press="mapByName"/>
+							</Toolbar>
+						</headerToolbar>
+						<dragDropConfig>
+							<dnd:DragDropInfo sourceAggregation="items" targetAggregation="items" targetElement="idUploadedDataColumns" dropPosition="On"
+								drop="onDroppedMapping"/>
+						</dragDropConfig>
+					</List>
+					<Page showHeader="false">
+						<List visible="{= ${/mappedColumns} !== null }" headerText="Mappings" id="idTableMappingList" mode="Delete" showNoData="false"
+							delete="onMappingsDeleted">
+							<layoutData><l:SplitterLayoutData size="50%" minSize="200px"/></layoutData>
+						</List>
+						<MessagePage description="Drag from left to the corrosponding columns on the right to map the uploaded data from source workbook sheet to the table. The resulting data can be previewed on the below table" text="Drag and Drop to create mappings" showHeader="false"
+							visible="{= ${/mappedColumns} === null }" icon="sap-icon://duplicate"/>
+					</Page>
+					<List headerText="Uploaded Data Columns" id="idUploadedDataColumns"></List>
+				</l:Splitter>
+			</Panel>
+			<Panel id='idDataPreviewTable' headerText="Data Preview" expandable="true" expanded="true"></Panel>
+		</content>
+		<footer>
+			<OverflowToolbar >
+				<Button icon="sap-icon://message-error" id="idMessageButton"/>
+				<ToolbarSpacer/>
+				<Button text="Re-Upload Data" press="navToExcelUpload" icon="sap-icon://nav-back"/>
+				<Button text="Validate" press="validateMappings"/>
+				<Button text="Upload" icon="sap-icon://upload-to-cloud" type="Emphasized" press="uploadData"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

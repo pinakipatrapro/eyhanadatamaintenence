@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Table id="idTableMetadata" inset="false" items="{ path: '/tableMetadata', sorter: { path: 'columnName' } }">
+		<columns>
+			<Column width="16em" hAlign="Center">
+				<Text text="Column Name"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<Text text="Data Type"/>
+			</Column>
+			<Column  width="10em" minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<Text text="Dimensions"/>
+			</Column>
+			<Column minScreenWidth="Desktop" width="4em" demandPopin="true" hAlign="Center">
+				<Text text="Key"/>
+			</Column>
+			<Column hAlign="Center" width="4em">
+				<Text text="Not Null"/>
+			</Column>
+			<Column hAlign="Center">
+				<Text text="Comment"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Input value="{colName}"/>
+					<ComboBox items="{path:'/tableDataTypes'}" selectedKey="{dataType}">
+						<core:Item text="{DATA_TYPE_NAME}" key="{DATA_TYPE_NAME}"/>
+					</ComboBox>
+					<Input value="{dimension}"/>
+					<CheckBox selected="{key}"/>
+					<CheckBox selected="{notNull}" />
+					<Input value="{comment}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

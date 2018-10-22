@@ -1,0 +1,18 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ey.util.pinaki.DataImport.controller.TableCreator" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Create Table" class="fullHeight" id='idCreateTable' floatingFooter="true">
+		<content>
+			<VBox class="sapUiSmallMargin" alignItems="Center">
+		 		<Label text="Table Name : {/initialSettings/tableName}" tooltip="Table Name"/>
+		 		<CheckBox selected="{/initialSettings/columnStorage}" text="Column Storage"/>
+	 		</VBox>
+			 <core:Fragment fragmentName="ey.util.pinaki.DataImport.fragments.TableMetadata" type="XML"/>
+		</content>
+		<footer>
+			<OverflowToolbar visible="{= !!${/uploadedFileSheets}}">
+				<ToolbarSpacer/>
+				<Button text="Create table and Continue to Data Mapping"   press="nav2DataUploadMapping"  />
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
