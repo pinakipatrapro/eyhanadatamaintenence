@@ -5,8 +5,8 @@
 			<VBox alignItems="Center">
 				<RadioButtonGroup valueState="None" columns="5" class="sapUiSmallMargin">
 					<buttons>
-						<RadioButton  text="{i18n>importIntoExistingTableText}" selected="{/initialSettings/existingTable}"/>
 						<RadioButton  text="{i18n>createanewtable}" />
+						<RadioButton  text="{i18n>importIntoExistingTableText}" selected="{/initialSettings/existingTable}"/>
 					</buttons>
 				</RadioButtonGroup>
 				<HBox justifyContent="Center" class="sapUiTinyMargin">
@@ -32,7 +32,7 @@
 				</HBox>
 				<HBox justifyContent="Center">
 					<Label text="Select Workbook" class="sapUiTinyMargin"/>
-					<html:Input type="file" id="fileUploader" width="25rem" class="sapUiTinyMargin fileSelector"/>
+					<html:Input type="file" id="fileUploader" accept=".xlsx, .xls" width="25rem" class="sapUiTinyMargin fileSelector"/>
 				</HBox>
 				<HBox justifyContent="Center" class="sapUiTinyMargin" visible="{= !!${/uploadedFileSheets}}">
 					<Label text="Select Sheet" class="sapUiTinyMargin"/>

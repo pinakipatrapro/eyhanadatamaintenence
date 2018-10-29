@@ -4,7 +4,7 @@ function () {
 	return {
 		intialSettings: {
 			columnStorage : true,
-			existingTable: true,
+			existingTable: false,
 			schemaName: '', //Dropdown
 			tableName: '', // Input Suggest
 			deleteExistingData: false,
