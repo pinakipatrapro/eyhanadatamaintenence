@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ey.util.pinaki.DataImport.controller.DataExplorer" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Table Data Explorer" class="fullHeight" id='idDataExplorer' floatingFooter="true">
+		<content>
+			<VBox alignItems="Center">
+				<HBox justifyContent="Center" class="sapUiTinyMargin">
+					<Label text="Select Schema" class="sapUiTinyMargin"/>
+					<ComboBox selectedKey="{/initialSettings/schemaName}"
+						items="{ path:'viewModel>/Artifacts?$select=SCHEMA_NAME', parameters: { select: 'SCHEMA_NAME', top : '1000' } }"
+						change="onSchemaSelectionChange">
+						<core:Item text="{viewModel>SCHEMA_NAME}" key="{viewModel>SCHEMA_NAME}"/>
+					</ComboBox>
+				</HBox>
+				<HBox justifyContent="Center" class="sapUiTinyMargin" visible="{/initialSettings/existingTable}">
+					<Label text="Select Table" class="sapUiTinyMargin"/>
+					<ComboBox id='idTableSelect' selectedKey="{/initialSettings/tableName}" change="onTableSelectionChange"></ComboBox>
+				</HBox>
+			</VBox>
+		</content>
+		<footer>
+			<OverflowToolbar visible="{= !!${/initialSettings/tableName}}">
+				<ToolbarSpacer/>
+				<Button text="Drop Table" icon="sap-icon://overview-chart" press="nav2DataUploadMapping"/>
+				<Button text="Delete Data" icon="sap-icon://create" press="nav2TableCreation"/>
+				<Button text="Export Data" icon="sap-icon://download" press="onExport"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

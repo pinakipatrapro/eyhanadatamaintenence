@@ -5,6 +5,7 @@
 			<tnt:items>
 				<tnt:NavigationListItem icon="sap-icon://menu2" text="{i18n>tooglesidebarText}" select="toggleSidebar" />
 				<tnt:NavigationListItem icon="sap-icon://upload-to-cloud" text="{i18n>initialSettingsText}" select="nav2InitialSettings" />
+				<tnt:NavigationListItem icon="sap-icon://chart-table-view" text="Data Explorer" select="nav2DataExplorer" />
 			</tnt:items>
 		</tnt:NavigationList>
 	</tnt:SideNavigation>

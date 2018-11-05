@@ -14,6 +14,9 @@ sap.ui.define([
 		},
 		nav2InitialSettings : function(){
 			this.navToRoute('InitialSettings');
+		},
+		nav2DataExplorer : function(){
+			this.navToRoute('DataExplorer');
 		}
 	});
 });

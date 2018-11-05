@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (Table, Column, BaseObject, RawDataValidator) {
 	"use strict";
 
-	var tableConstructor = function (id, data,enabled) {
+	var tableConstructor = function (id, data,enabled,settings) {
 		this._table = new Table(id, {
 			selectionMode : enabled ? 'Multi':'None',
 			rows: "{/tableData}",
@@ -19,7 +19,7 @@ sap.ui.define([
 			toolbar: new sap.m.Toolbar({
 				content: [
 					new sap.m.Label({
-						text: 'Data from uploaded sheet',
+						text: settings?settings.title:'Data from uploaded sheet',
 						design: 'Bold'
 					}),
 					new sap.m.ToolbarSpacer(),

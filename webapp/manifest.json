@@ -122,6 +122,13 @@
 					"target": [
 						"TableCreator"
 					]
+				},
+				{
+					"name": "DataExplorer",
+					"pattern": "DataExplorer",
+					"target": [
+						"DataExplorer"
+					]
 				}
 			],
 			"targets": {
@@ -170,6 +177,16 @@
 					"viewType": "XML",
 					"viewName": "TableCreator",
 					"clearControlAggregation": true
+				},
+				"DataExplorer": {
+					"viewType": "XML",
+					"viewName": "DataExplorer",
+					"controlAggregation": "mainContents",
+					"controlId": "tdToolpageContiner",
+					"clearControlAggregation": true,
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "ey.util.pinaki.DataImport.view"
 				}
 			}
 		}
